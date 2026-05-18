@@ -254,9 +254,9 @@
 }
 
 /* ── Section spacing ────────────────────────────────── */
-.section-py { padding-top: 5rem; padding-bottom: 5rem; }
-@media (min-width: 768px) { .section-py { padding-top: 8rem; padding-bottom: 8rem; } }
-@media (min-width: 1024px) { .section-py { padding-top: 10rem; padding-bottom: 10rem; } }
+.section-py { padding-top: 4rem; padding-bottom: 4rem; }
+@media (min-width: 768px) { .section-py { padding-top: 5.5rem; padding-bottom: 5.5rem; } }
+@media (min-width: 1024px) { .section-py { padding-top: 7rem; padding-bottom: 7rem; } }
 
 /* ── Animations ─────────────────────────────────────── */
 .animate-float      { animation: float-gentle 7s ease-in-out infinite; }
