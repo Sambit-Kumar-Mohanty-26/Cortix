@@ -103,10 +103,15 @@ export default function ProctoringSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="absolute -bottom-5 -right-5 glass rounded-2xl px-5 py-3.5 border-green-500/20 shadow-[0_0_30px_rgba(34,197,94,0.1)]"
+              className="absolute -bottom-12 -right-5 glass rounded-2xl px-6 py-4 border border-green-500/20 shadow-[0_0_30px_rgba(34,197,94,0.15)] flex items-center gap-4"
             >
-              <p className="text-[12px] text-zinc-400">Zero violations detected</p>
-              <p className="text-xl font-bold text-green-400">Clean Session ✓</p>
+              <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center shrink-0">
+                <span className="text-green-400 text-base">✓</span>
+              </div>
+              <div>
+                <p className="text-sm font-bold text-green-400 leading-tight">Clean Session</p>
+                <p className="text-[11px] text-zinc-400 mt-0.5">Zero violations detected</p>
+              </div>
             </motion.div>
           </motion.div>
 
@@ -155,7 +160,7 @@ export default function ProctoringSection() {
                     transition={{ duration: 0.5, delay: i * 0.07, ease: EASE }}
                     className="flex items-start gap-3 glass rounded-xl p-4 border-white/[0.05]"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
                       <Icon className="h-4 w-4 text-blue-400" />
                     </div>
                     <div>
