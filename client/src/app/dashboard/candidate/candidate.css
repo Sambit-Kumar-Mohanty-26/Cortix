@@ -1,0 +1,206 @@
+/* ── Candidate Dashboard Main ──────────────────────────────────────────── */
+.candidate-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Wallet Card ───────────────────────────────────────────────────────── */
+.candidate-wallet-card {
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.12) 0%,
+    rgba(99, 102, 241, 0.06) 50%,
+    rgba(34, 211, 238, 0.05) 100%
+  );
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 20px;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 0 60px rgba(124, 58, 237, 0.08);
+}
+
+.cwc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.cwc-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c4b5fd;
+}
+
+.cwc-badge {
+  padding: 0.3rem 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: #a1a1aa;
+}
+
+.cwc-label {
+  font-size: 0.78rem;
+  color: #71717a;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cwc-address {
+  font-size: 1.05rem;
+  font-family: monospace;
+  color: #e4e4e7;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+  word-break: break-all;
+}
+
+.cwc-actions {
+  display: flex;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.cwc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.875rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  color: #a1a1aa;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.cwc-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #e4e4e7;
+}
+
+.cwc-note {
+  font-size: 0.75rem;
+  color: #52525b;
+  line-height: 1.5;
+}
+
+/* ── Stats Row ─────────────────────────────────────────────────────────── */
+.candidate-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .candidate-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cstat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 1.25rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.cstat-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.cstat-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(124, 58, 237, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a78bfa;
+  margin: 0 auto 0.75rem;
+}
+
+.cstat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.03em;
+}
+
+.cstat-label {
+  font-size: 0.75rem;
+  color: #71717a;
+  margin-top: 0.2rem;
+}
+
+/* ── Section ───────────────────────────────────────────────────────────── */
+.candidate-section {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 1.5rem;
+}
+
+.candidate-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e4e4e7;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+/* ── Empty state ───────────────────────────────────────────────────────── */
+.candidate-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  gap: 0.5rem;
+}
+
+.candidate-empty-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #52525b;
+  margin-bottom: 0.5rem;
+}
+
+.candidate-empty h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #71717a;
+}
+
+.candidate-empty p {
+  font-size: 0.82rem;
+  color: #52525b;
+  max-width: 380px;
+  line-height: 1.6;
+}

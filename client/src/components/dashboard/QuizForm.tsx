@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { Loader2, Plus } from "lucide-react";
 
+const SERVER_URL =
+  process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080";
+
 interface QuizFormProps {
     walletAddress: string;
     onQuizCreated: () => void;
@@ -26,9 +29,10 @@ export default function QuizForm({ walletAddress, onQuizCreated }: QuizFormProps
         setError(null);
 
         try {
-            const response = await fetch("/api/quizzes", {
+            const response = await fetch(`${SERVER_URL}/quizzes`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
+                credentials: "include",
                 body: JSON.stringify({
                     ...formData,
                     creatorWallet: walletAddress,

@@ -69,11 +69,11 @@ export default function NavBar() {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-3">
-            <a href="#demo" className="btn-outline text-sm px-5 py-2">
-              Book Demo
+            <a href="/auth?tab=login" className="btn-outline text-sm px-5 py-2">
+              Log In
             </a>
-            <a href="#start" className="btn-white text-sm px-5 py-2 shadow-[0_0_20px_rgba(255,255,255,0.08)]">
-              Start Free
+            <a href="/auth?tab=signup" className="btn-white text-sm px-5 py-2 shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+              Get Started
             </a>
           </div>
 
@@ -110,8 +110,8 @@ export default function NavBar() {
                 </a>
               ))}
               <div className="pt-5 flex flex-col gap-3">
-                <a href="#demo" className="btn-outline text-sm text-center py-3">Book Demo</a>
-                <a href="#start" className="btn-white text-sm text-center py-3">Start Free</a>
+                <a href="/auth?tab=login" className="btn-outline text-sm text-center py-3">Log In</a>
+                <a href="/auth?tab=signup" className="btn-white text-sm text-center py-3">Get Started</a>
               </div>
             </div>
           </motion.div>

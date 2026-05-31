@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { Trash2, ToggleLeft, ToggleRight, Loader2, Clock, BookOpen } from "lucide-react";
 
+const SERVER_URL =
+  process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080";
+
 interface Quiz {
     id: number;
     title: string;
@@ -27,9 +30,10 @@ export default function QuizTable({ quizzes, onQuizUpdated }: QuizTableProps) {
         setActionType("toggle");
 
         try {
-            const response = await fetch(`/api/quizzes/${quiz.id}`, {
+            const response = await fetch(`${SERVER_URL}/quizzes/${quiz.id}`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
+                credentials: "include",
                 body: JSON.stringify({ isActive: !quiz.isActive }),
             });
 
@@ -50,8 +54,9 @@ export default function QuizTable({ quizzes, onQuizUpdated }: QuizTableProps) {
         setActionType("delete");
 
         try {
-            const response = await fetch(`/api/quizzes/${quizId}`, {
+            const response = await fetch(`${SERVER_URL}/quizzes/${quizId}`, {
                 method: "DELETE",
+                credentials: "include",
             });
 
             if (!response.ok) throw new Error("Failed to delete");

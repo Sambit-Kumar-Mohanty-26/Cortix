@@ -6,6 +6,9 @@ import { Clock, BookOpen, ArrowLeft, Play, Loader2, AlertTriangle } from "lucide
 import HardwareCheck from "@/components/exam/HardwareCheck";
 import "./exam.css";
 
+const SERVER_URL =
+  process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080";
+
 interface Quiz {
     id: number;
     title: string;
@@ -31,7 +34,7 @@ export default function ExamLobbyPage({ params }: PageProps) {
     useEffect(() => {
         const fetchQuiz = async () => {
             try {
-                const response = await fetch(`/api/quizzes/${id}`);
+                const response = await fetch(`${SERVER_URL}/quizzes/${id}`);
 
                 if (!response.ok) {
                     if (response.status === 404) {
