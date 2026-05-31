@@ -1,12 +1,11 @@
+import "dotenv/config"; // ← MUST be first — loads .env before any other module runs
+
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/auth";
 import paymentRouter from "./routes/payment";
 import quizRouter from "./routes/quiz";
-
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
