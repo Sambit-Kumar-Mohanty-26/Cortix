@@ -9,7 +9,8 @@ import quizRouter from "./routes/quiz";
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3000";
+// Strip trailing slash so CORS exact-match never breaks
+const CLIENT_URL = (process.env.CLIENT_URL || "http://localhost:3000").replace(/\/$/, "");
 
 // Middleware 
 app.use(
