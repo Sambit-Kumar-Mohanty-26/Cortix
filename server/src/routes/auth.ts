@@ -16,12 +16,15 @@ import { google } from "googleapis";
 const router = Router();
 
 // Cookie helpers
+// SameSite=None + Secure is required for cross-domain cookies (Vercel - Render)
+
+const IS_PROD = process.env.NODE_ENV === "production";
 
 const COOKIE_OPTIONS = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
-  sameSite: "lax" as const,
-  maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in ms
+  secure: IS_PROD,
+  sameSite: (IS_PROD ? "none" : "lax") as "none" | "lax",
+  maxAge: 7 * 24 * 60 * 60 * 1000,
   path: "/",
 };
 
@@ -30,7 +33,12 @@ function setSessionCookie(res: Response, token: string) {
 }
 
 function clearSessionCookie(res: Response) {
-  res.clearCookie(SESSION_COOKIE_NAME, { path: "/" });
+  res.clearCookie(SESSION_COOKIE_NAME, {
+    httpOnly: true,
+    secure: IS_PROD,
+    sameSite: (IS_PROD ? "none" : "lax") as "none" | "lax",
+    path: "/",
+  });
 }
 
 // Google OAuth client
