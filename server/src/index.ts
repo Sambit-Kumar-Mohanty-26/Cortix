@@ -1,4 +1,4 @@
-import "dotenv/config"; // ← MUST be first — loads .env before any other module runs
+import "dotenv/config";
 
 import express from "express";
 import cors from "cors";
@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3000";
 
-// ─── Middleware ───────────────────────────────────────────────────────────
+// Middleware 
 app.use(
   cors({
     origin: CLIENT_URL,
@@ -21,7 +21,7 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-// ─── Routes ───────────────────────────────────────────────────────────────
+// Routes
 app.get("/", (_req, res) => {
   res.send("Cortix API is Online 🚀");
 });
@@ -30,7 +30,7 @@ app.use("/auth", authRouter);
 app.use("/payment", paymentRouter);
 app.use("/quizzes", quizRouter);
 
-// ─── Start ────────────────────────────────────────────────────────────────
+// Start
 app.listen(PORT, () => {
   console.log(`✅ Cortix Server running on http://localhost:${PORT}`);
 });

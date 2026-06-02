@@ -7,7 +7,7 @@ import { validateSession, SESSION_COOKIE_NAME } from "../lib/session";
 
 const router = Router();
 
-// ─── Razorpay instance ────────────────────────────────────────────────────
+// Razorpay instance
 function getRazorpay() {
   const keyId = process.env.RAZORPAY_KEY_ID;
   const keySecret = process.env.RAZORPAY_KEY_SECRET;
@@ -19,7 +19,7 @@ function getRazorpay() {
   return new Razorpay({ key_id: keyId, key_secret: keySecret });
 }
 
-// ─── Plan config ──────────────────────────────────────────────────────────
+// Plan config
 export const PLANS = {
   free: {
     id: "free",
@@ -37,7 +37,7 @@ export const PLANS = {
     id: "pro",
     name: "Pro Plan",
     price: 49,
-    priceInPaise: 4900 * 83, // $49 * 83 INR/USD (approx), in paise
+    priceInPaise: 4900 * 95, // $49 * 95 INR/USD (approx), in paise
     currency: "INR",
     features: [
       "Unlimited active exams",
@@ -50,7 +50,7 @@ export const PLANS = {
   },
 };
 
-// ─── Auth middleware ───────────────────────────────────────────────────────
+// Auth middleware
 async function requireAuth(
   req: Request,
   res: Response,
@@ -70,13 +70,13 @@ async function requireAuth(
   return next();
 }
 
-// ─── GET /payment/plans — Return available plans ──────────────────────────
+// GET /payment/plans - Return available plans
 
 router.get("/plans", (_req: Request, res: Response) => {
   return res.json(PLANS);
 });
 
-// ─── POST /payment/create-order — Create a Razorpay order for Pro plan ───
+// POST /payment/create-order - Create a Razorpay order for Pro plan
 
 router.post(
   "/create-order",
@@ -137,7 +137,7 @@ router.post(
   }
 );
 
-// ─── POST /payment/verify — Verify payment signature & activate Pro plan ─
+// POST /payment/verify - Verify payment signature & activate Pro plan
 
 router.post(
   "/verify",
@@ -194,7 +194,7 @@ router.post(
   }
 );
 
-// ─── POST /payment/select-free — Explicitly choose free plan ─────────────
+// POST /payment/select-free - Explicitly choose free plan
 
 router.post(
   "/select-free",

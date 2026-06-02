@@ -1,6 +1,6 @@
 import { pgTable, serial, text, boolean, jsonb, timestamp, integer, uuid } from "drizzle-orm/pg-core";
 
-// ─── Users ──────────────────────────────────────────────────────────────────
+// Users 
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
 
@@ -21,7 +21,7 @@ export const users = pgTable("users", {
 
   googleId: text("google_id").unique(),
 
-  // Plan — only relevant for examiners
+  // Plan - only relevant for examiners
   plan: text("plan").default("free"),
   planStatus: text("plan_status").default("active"),
   razorpayOrderId: text("razorpay_order_id"),
@@ -31,7 +31,7 @@ export const users = pgTable("users", {
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
-// ─── Sessions ────────────────────────────────────────────────────────────────
+// Sessions
 export const sessions = pgTable("sessions", {
   id: uuid("id").primaryKey(),
   userId: integer("user_id")
@@ -41,7 +41,7 @@ export const sessions = pgTable("sessions", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
-// ─── Quizzes ─────────────────────────────────────────────────────────────────
+// Quizzes
 export const quizzes = pgTable("quizzes", {
   id: serial("id").primaryKey(),
   creatorWallet: text("creator_wallet").notNull(),
@@ -55,7 +55,7 @@ export const quizzes = pgTable("quizzes", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
-// ─── Submissions ─────────────────────────────────────────────────────────────
+// Submissions
 export const submissions = pgTable("submissions", {
   id: serial("id").primaryKey(),
   quizId: integer("quiz_id").references(() => quizzes.id),

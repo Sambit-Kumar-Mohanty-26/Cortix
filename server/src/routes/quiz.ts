@@ -4,7 +4,7 @@ import { eq } from "drizzle-orm";
 
 const router = Router();
 
-// ─── POST /quizzes — Create a new quiz ────────────────────────────────────
+// POST /quizzes - Create a new quiz
 
 router.post("/", async (req: Request, res: Response) => {
   try {
@@ -45,7 +45,7 @@ router.post("/", async (req: Request, res: Response) => {
   }
 });
 
-// ─── GET /quizzes?wallet=<address> — List quizzes by creator wallet ────────
+// GET /quizzes?wallet=<address> - List quizzes by creator wallet
 
 router.get("/", async (req: Request, res: Response) => {
   try {
@@ -70,7 +70,7 @@ router.get("/", async (req: Request, res: Response) => {
   }
 });
 
-// ─── GET /quizzes/:id — Get a single quiz by ID ───────────────────────────
+// GET /quizzes/:id - Get a single quiz by ID
 
 router.get("/:id", async (req: Request, res: Response) => {
   try {
@@ -97,7 +97,7 @@ router.get("/:id", async (req: Request, res: Response) => {
   }
 });
 
-// ─── PATCH /quizzes/:id — Toggle quiz active status ───────────────────────
+// PATCH /quizzes/:id - Toggle quiz active status
 
 router.patch("/:id", async (req: Request, res: Response) => {
   try {
@@ -132,7 +132,7 @@ router.patch("/:id", async (req: Request, res: Response) => {
   }
 });
 
-// ─── DELETE /quizzes/:id — Delete a quiz ─────────────────────────────────
+// DELETE /quizzes/:id - Delete a quiz
 
 router.delete("/:id", async (req: Request, res: Response) => {
   try {

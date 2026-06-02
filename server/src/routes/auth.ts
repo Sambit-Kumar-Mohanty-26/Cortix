@@ -15,7 +15,7 @@ import { google } from "googleapis";
 
 const router = Router();
 
-// ─── Cookie helpers ────────────────────────────────────────────────────────
+// Cookie helpers
 
 const COOKIE_OPTIONS = {
   httpOnly: true,
@@ -33,7 +33,7 @@ function clearSessionCookie(res: Response) {
   res.clearCookie(SESSION_COOKIE_NAME, { path: "/" });
 }
 
-// ─── Google OAuth client ───────────────────────────────────────────────────
+// Google OAuth client
 
 function getOAuthClient() {
   return new google.auth.OAuth2(
@@ -43,7 +43,7 @@ function getOAuthClient() {
   );
 }
 
-// ─── GET /auth/google — Redirect to Google ────────────────────────────────
+// GET /auth/google - Redirect to Google
 
 router.get("/google", (req: Request, res: Response) => {
   const role = (req.query.role as string) || "candidate";
@@ -56,7 +56,7 @@ router.get("/google", (req: Request, res: Response) => {
   res.redirect(url);
 });
 
-// ─── GET /auth/google/callback ─────────────────────────────────────────────
+// GET /auth/google/callback
 
 router.get("/google/callback", async (req: Request, res: Response) => {
   const { code, state } = req.query;
@@ -91,7 +91,7 @@ router.get("/google/callback", async (req: Request, res: Response) => {
       );
 
     if (!user) {
-      // New user — generate managed wallet
+      // New user - generate managed wallet
       const wallet = generateManagedWallet();
 
       const [newUser] = await db
@@ -110,7 +110,7 @@ router.get("/google/callback", async (req: Request, res: Response) => {
 
       user = newUser;
     } else if (!user.googleId) {
-      // Existing email user — link Google account
+      // Existing email user - link Google account
       const [updated] = await db
         .update(schema.users)
         .set({ googleId: googleUser.id })
@@ -131,7 +131,7 @@ router.get("/google/callback", async (req: Request, res: Response) => {
   }
 });
 
-// ─── POST /auth/email/signup ───────────────────────────────────────────────
+// POST /auth/email/signup
 
 router.post("/email/signup", async (req: Request, res: Response) => {
   try {
@@ -195,7 +195,7 @@ router.post("/email/signup", async (req: Request, res: Response) => {
   }
 });
 
-// ─── POST /auth/email/login ────────────────────────────────────────────────
+// POST /auth/email/login
 
 router.post("/email/login", async (req: Request, res: Response) => {
   try {
@@ -236,7 +236,7 @@ router.post("/email/login", async (req: Request, res: Response) => {
   }
 });
 
-// ─── POST /auth/wallet/login ───────────────────────────────────────────────
+// POST /auth/wallet/login
 // Verify Solana wallet signature → find or create user → set session
 
 router.post("/wallet/login", async (req: Request, res: Response) => {
@@ -307,7 +307,7 @@ router.post("/wallet/login", async (req: Request, res: Response) => {
   }
 });
 
-// ─── GET /auth/session — Validate current session ─────────────────────────
+// GET /auth/session - Validate current session
 
 router.get("/session", async (req: Request, res: Response) => {
   try {
@@ -350,7 +350,7 @@ router.get("/session", async (req: Request, res: Response) => {
   }
 });
 
-// ─── POST /auth/logout ─────────────────────────────────────────────────────
+// POST /auth/logout - Invalidate current session
 
 router.post("/logout", async (req: Request, res: Response) => {
   try {
