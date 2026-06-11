@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
-  Box, LayoutDashboard, FileText, Users,
+  LayoutDashboard, FileText, Users,
   BarChart3, Award, TrendingUp, Settings,
   LogOut, ChevronDown, ChevronRight,
 } from "lucide-react";
@@ -43,14 +44,9 @@ export default function Sidebar({ activeSection, onNavigate, user, onLogout }: P
     <aside className="w-60 h-screen flex flex-col shrink-0 border-r border-white/[0.06] bg-[#050508]">
 
       {/* Logo */}
-      <Link href="/" className="flex items-center gap-2.5 px-5 h-16 border-b border-white/[0.06] group shrink-0">
-        <div className="w-8 h-8 rounded-xl bg-violet-600 flex items-center justify-center shadow-[0_0_14px_rgba(139,92,246,0.5)] group-hover:shadow-[0_0_22px_rgba(139,92,246,0.7)] transition-shadow">
-          <Box className="w-4 h-4 text-white" />
-        </div>
-        <div>
-          <p className="font-bold text-sm text-white tracking-tight leading-none">Cortix</p>
-          <p className="text-[9px] text-zinc-600 tracking-widest uppercase mt-0.5">Proof of Intelligence</p>
-        </div>
+      <Link href="/" className="flex items-center px-5 h-16 border-b border-white/[0.06] group shrink-0">
+        <Image src="/Cortix Logo.png" alt="Cortix" width={36} height={36} className="h-[32px] w-auto object-contain shrink-0 -translate-y-[3px]" />
+        <Image src="/Cortix typography.png" alt="Cortix" width={100} height={36} className="h-[32px] w-auto object-contain -ml-1" />
       </Link>
 
       {/* Nav */}

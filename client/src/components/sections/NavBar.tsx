@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const links = [
   { label: "Product",      href: "#product" },
@@ -38,19 +39,9 @@ export default function NavBar() {
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between px-5 sm:px-8 h-[66px]">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-3 group">
-            <div className="relative w-9 h-9 rounded-xl overflow-hidden flex-shrink-0">
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-600 to-cyan-500" />
-              <div className="absolute inset-[2px] bg-black rounded-[9px] flex items-center justify-center">
-                <span className="text-white font-black text-sm tracking-tight">C</span>
-              </div>
-            </div>
-            <div className="leading-none">
-              <div className="text-[15px] font-semibold tracking-tight text-white">Cortix</div>
-              <div className="text-[9.5px] text-zinc-600 tracking-[0.16em] uppercase mt-0.5 font-medium">
-                Proof of Intelligence
-              </div>
-            </div>
+          <a href="/" className="flex items-center group">
+            <Image src="/Cortix Logo.png" alt="Cortix" width={36} height={36} className="h-[34px] w-auto object-contain shrink-0 -translate-y-[3px]" />
+            <Image src="/Cortix typography.png" alt="Cortix" width={100} height={36} className="h-[34px] w-auto object-contain -ml-1" />
           </a>
 
           {/* Desktop Nav */}

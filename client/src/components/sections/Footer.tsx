@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -42,17 +43,9 @@ export default function Footer() {
             transition={{ duration: 0.6, ease: EASE }}
             className="col-span-2 md:col-span-1"
           >
-            <a href="/" className="flex items-center gap-3 mb-5 group">
-              <div className="relative w-9 h-9 rounded-xl overflow-hidden flex-shrink-0">
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-600 to-cyan-500" />
-                <div className="absolute inset-[2px] bg-black rounded-[9px] flex items-center justify-center">
-                  <span className="text-white font-black text-sm">C</span>
-                </div>
-              </div>
-              <div>
-                <div className="text-[15px] font-semibold tracking-tight text-white">Cortix</div>
-                <div className="text-[9px] text-zinc-600 tracking-[0.15em] uppercase font-medium">Proof of Intelligence</div>
-              </div>
+            <a href="/" className="flex items-center group mb-5">
+              <Image src="/Cortix Logo.png" alt="Cortix" width={36} height={36} className="h-[34px] w-auto object-contain shrink-0 -translate-y-[3px]" />
+              <Image src="/Cortix typography.png" alt="Cortix" width={100} height={36} className="h-[34px] w-auto object-contain -ml-1" />
             </a>
             <p className="text-zinc-600 text-[13px] leading-relaxed max-w-[200px]">
               AI-powered oral exams with on-chain credential verification.
